@@ -10,7 +10,7 @@ classifier = pipeline(
 
 def run_analysis(video_id):
 
-    API_KEY = "AIzaSyCN7WyV3pVd2n3GJ4KnrmGIB4BbAjN1OFs"
+    API_KEY = "Api_Key"
 
     youtube = build(
         "youtube",
