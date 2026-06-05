@@ -481,7 +481,7 @@ if analyze:
 
         fig.update_traces(
             line_color="#9E1B34",
-            line_width=3
+            line_width=2
         )
 
         fig.update_layout(
@@ -629,6 +629,12 @@ if analyze:
 
     with col6:
 
+        impact_df=df_model[
+        df_model["weight"]>df_model["weight"].quantile(0.9)
+        ].copy()
+
+        impact_df["bubble_size"]=impact_df["weight"]**0.5
+
         fig=px.scatter(
             df_model,
             x="likes",
@@ -676,6 +682,7 @@ if analyze:
                 tickfont=dict(color="white")
                 )
             )
+
 
         st.plotly_chart(
             fig,

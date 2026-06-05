@@ -3,14 +3,18 @@ import pandas as pd
 from googleapiclient.discovery import build
 from transformers import pipeline
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+API_KEY = os.getenv("YOUTUBE_API_KEY")
+
 classifier = pipeline(
     "text-classification",
     model="cardiffnlp/twitter-roberta-base-sentiment-latest"
 )
 
 def run_analysis(video_id):
-
-    API_KEY = "Api_Key"
 
     youtube = build(
         "youtube",

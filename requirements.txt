@@ -1,8 +1,7 @@
-# To be installed libraries for the project
+python-dotenv
+google-api-python-client
+transformers
+torch
 pandas
-numpy
-matplotlib
-scikit-learn
-seaborn
-xgboost
-# etc. (add any other libraries you need for your project)
+streamlit
+plotly
