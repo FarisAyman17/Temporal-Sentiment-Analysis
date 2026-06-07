@@ -706,3 +706,359 @@ Identify the most significant moments in a video.
 ---
 
 
+# Data Visualization and Insights
+
+## Overview
+
+After preprocessing, feature engineering, and sentiment analysis, the data was visualized through a collection of interactive charts designed to transform raw audience reactions into actionable insights.
+
+The objective of the visualization layer is to answer key business questions regarding audience engagement, emotional response, and video performance.
+
+The visualizations were developed using Plotly and integrated into a Streamlit dashboard to provide an interactive user experience.
+
+---
+
+## Visualization 1: Audience Attention Timeline
+
+### Purpose
+
+Visualize audience attention throughout the video by displaying the number of timestamp comments within each video segment.
+
+### Business Question
+
+Which parts of the video attracted the highest audience attention?
+
+### Visualization
+
+> Insert Screenshot Here
+
+```markdown
+![Audience Attention Timeline](images/Audience-Attention-Timeline.jpeg)
+```
+
+### Insights
+
+This chart highlights peaks in audience activity.
+
+High peaks indicate moments where viewers repeatedly referenced the same timestamps, suggesting memorable, impactful, or discussion-worthy content.
+
+Content creators can use this information to identify successful content patterns and improve future productions.
+
+---
+
+## Visualization 2: Top Video Moments
+
+### Purpose
+
+Identify and rank the most significant moments in the video.
+
+### Business Question
+
+What are the most important moments according to audience behavior?
+
+### Visualization
+
+> Insert Screenshot Here
+
+```markdown
+![Top Video Moments](../images/golden-moments.png)
+```
+
+### Insights
+
+The ranking combines:
+
+- Comment frequency
+- Likes
+- Replies
+- Sentiment intensity
+
+This allows creators to quickly identify highlights without manually reviewing thousands of comments.
+
+---
+
+## Visualization 3: Sentiment Distribution
+
+### Purpose
+
+Measure overall audience sentiment.
+
+### Business Question
+
+How did viewers feel about the video?
+
+### Visualization
+
+> Insert Screenshot Here
+
+```markdown
+![Sentiment Distribution](../images/sentiment-distribution.png)
+```
+
+### Insights
+
+The distribution reveals whether audience reactions are predominantly:
+
+- Positive
+- Neutral
+- Negative
+
+A high positive ratio may indicate audience satisfaction, while increased negative sentiment may signal issues requiring attention.
+
+---
+
+## Visualization 4: Sentiment Over Time
+
+### Purpose
+
+Track sentiment changes throughout the video.
+
+### Business Question
+
+How do audience emotions vary across different video moments?
+
+### Insights
+
+This visualization helps identify:
+
+- Emotional peaks
+- Controversial moments
+- Highly appreciated sections
+
+It provides context beyond simple engagement metrics.
+
+---
+
+## Visualization 5: Confidence Distribution
+
+### Purpose
+
+Evaluate the confidence of sentiment predictions.
+
+### Business Question
+
+How certain is the AI model about its classifications?
+
+### Insights
+
+Higher confidence values indicate stronger prediction certainty and increase trust in generated insights.
+
+---
+
+## Visualization 6: Most Referenced Timestamps
+
+### Purpose
+
+Display the timestamps most frequently mentioned by viewers.
+
+### Business Question
+
+Which moments are repeatedly discussed by the audience?
+
+### Insights
+
+Frequently referenced timestamps often correspond to:
+
+- Funny moments
+- Educational explanations
+- Emotional scenes
+- Unexpected events
+
+These timestamps provide a direct indication of audience-selected highlights.
+
+---
+
+## Visualization 7: Likes vs Replies Impact
+
+### Purpose
+
+Analyze engagement relationships.
+
+### Business Question
+
+Which comments generated the strongest audience interaction?
+
+### Insights
+
+Comments receiving both likes and replies are often highly influential and represent meaningful audience discussions.
+
+---
+
+## Visualization 8: Golden Moments Ranking
+
+### Purpose
+
+Present the highest-ranked moments according to the Peak Score algorithm.
+
+### Business Question
+
+Which video segments should be considered the primary highlights?
+
+### Insights
+
+This visualization supports rapid highlight discovery and provides creators with an objective ranking of important video moments.
+
+---
+
+## Overall Visualization Findings
+
+The visualization layer revealed several important patterns:
+
+1. Audience attention is concentrated around a small number of video moments.
+2. High engagement frequently coincides with strong emotional reactions.
+3. Timestamp references serve as effective indicators of audience-selected highlights.
+4. Combining engagement and sentiment provides richer insights than using either metric independently.
+5. Important moments can be discovered automatically without manually reviewing comments.
+
+---
+
+# Dashboard Design & Business Insights
+![Dashboard Overview](images/dashboard-overview.jpng)
+## Dashboard Overview
+
+The final dashboard was developed using Streamlit and serves as the primary user interface for the project.
+
+The dashboard transforms raw YouTube comments into interactive visual analytics that support audience understanding and highlight discovery.
+
+---
+
+## Dashboard Objectives
+
+The dashboard was designed to:
+
+- Simplify audience analysis.
+- Identify important moments automatically.
+- Visualize audience sentiment.
+- Present engagement metrics clearly.
+- Support data-driven decision making.
+
+---
+
+## Dashboard Layout
+
+The dashboard consists of several major sections:
+
+### Section 1: Executive KPIs
+
+Displayed metrics include:
+
+- Total Timestamp Comments
+- Average Sentiment
+- Positive Sentiment Percentage
+- Highest Peak Score
+
+Purpose:
+
+Provide an immediate overview of video performance.
+
+---
+
+### Section 2: Audience Attention Timeline
+
+Business Question:
+
+Where is audience attention concentrated?
+
+Business Value:
+
+Helps creators identify successful content segments.
+
+---
+
+### Section 3: Golden Moment
+
+Business Question:
+
+What is the single most important moment in the video?
+
+Business Value:
+
+Provides immediate highlight discovery.
+
+---
+
+### Section 4: Top Video Moments
+
+Business Question:
+
+Which moments generated the strongest reactions?
+
+Business Value:
+
+Supports content optimization and highlight creation.
+
+---
+
+### Section 5: Sentiment Analytics
+
+Business Question:
+
+How did viewers emotionally react to the content?
+
+Business Value:
+
+Measures audience satisfaction and emotional engagement.
+
+---
+
+### Section 6: Timestamp Analytics
+
+Business Question:
+
+Which timestamps are repeatedly discussed?
+
+Business Value:
+
+Identifies memorable moments selected directly by viewers.
+
+---
+
+### Section 7: Engagement Analytics
+
+Business Question:
+
+Which comments generated meaningful interaction?
+
+Business Value:
+
+Reveals influential discussions and audience interests.
+
+---
+
+## Dashboard Design Principles
+
+Several design principles guided dashboard development:
+
+### Simplicity
+
+Visualizations are easy to understand and interpret.
+
+### Interactivity
+
+Users can explore charts dynamically.
+
+### Consistency
+
+Charts use a unified design style.
+
+### Business Relevance
+
+Every visualization answers a specific business question.
+
+---
+
+## Key Business Insights Generated
+
+The dashboard enables stakeholders to:
+
+- Discover audience-selected highlights.
+- Measure audience sentiment.
+- Understand viewer engagement patterns.
+- Improve content strategy.
+- Monitor audience reactions efficiently.
+
+The dashboard converts large volumes of unstructured comment data into actionable Business Intelligence insights that support informed decision making.
+
+---
+
+
