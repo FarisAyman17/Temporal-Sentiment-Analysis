@@ -733,12 +733,12 @@ Which parts of the video attracted the highest audience attention?
 > Insert Screenshot Here
 
 
-![Audience Attention Timeline](images/Audience-Attention-Timeline.jpeg)
+![Audience Attention Timeline](.../images/Audience-Attention-Timeline.jpeg)
 
 
 ### Insights
 
-This chart highlights peaks in audience activity.
+This chart highlights peaks in audience activity.![Test](../images/dashboard-overview.jpeg)
 
 High peaks indicate moments where viewers repeatedly referenced the same timestamps, suggesting memorable, impactful, or discussion-worthy content.
 
