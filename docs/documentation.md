@@ -733,7 +733,7 @@ Which parts of the video attracted the highest audience attention?
 > Insert Screenshot Here
 
 ```markdown
-![Audience Attention Timeline]Temporal-Sentiment-Analysis/images/Audience-Attention-Timeline.jpeg
+![Audience Attention Timeline](../images/Audience-Attention-Timeline.jpeg)
 ```
 
 ### Insights
