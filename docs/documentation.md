@@ -732,9 +732,9 @@ Which parts of the video attracted the highest audience attention?
 
 > Insert Screenshot Here
 
-```markdown
-![Audience Attention Timeline](../images/Audience-Attention-Timeline.jpeg)
-```
+
+![Audience Attention Timeline](images/Audience-Attention-Timeline.jpeg)
+
 
 ### Insights
 
@@ -1060,5 +1060,627 @@ The dashboard enables stakeholders to:
 The dashboard converts large volumes of unstructured comment data into actionable Business Intelligence insights that support informed decision making.
 
 ---
+
+
+# Advanced Analytics and AI Modeling
+
+## AI Problem Definition
+
+The core challenge addressed by this project is the automatic identification of important moments within YouTube videos based on audience reactions.
+
+Traditional YouTube analytics provide aggregate metrics such as views, watch time, likes, and retention rates. However, they do not reveal which exact moments generated the strongest audience reactions or explain how viewers emotionally responded to those moments.
+
+This project addresses this challenge by combining Natural Language Processing (NLP), Sentiment Analysis, and Temporal Analytics.
+
+---
+
+## Modeling Approach
+
+The proposed solution consists of two analytical layers:
+
+### Layer 1: Sentiment Analysis
+
+A transformer-based sentiment classification model analyzes each timestamp-related comment and determines whether the audience reaction is:
+
+- Positive  
+- Neutral  
+- Negative  
+
+### Layer 2: Temporal Highlight Detection
+
+Timestamp comments are aggregated into 30-second video segments.
+
+Each segment receives a custom Peak Score based on:
+
+- Number of comments  
+- Total likes  
+- Total replies  
+- Average sentiment intensity  
+
+This allows the system to automatically rank video highlights.
+
+---
+
+## Why Sentiment Analysis?
+
+Timestamp comments alone reveal where audience attention is concentrated.
+
+However, they do not explain whether the audience reaction was positive or negative.
+
+For example:
+
+> "12:45 was hilarious"  
+> "12:45 ruined the entire video"
+
+Both reference the same timestamp but represent opposite audience reactions.
+
+Sentiment analysis enables the system to understand audience perception in addition to attention.
+
+---
+
+## Model Selection Process
+
+Several sentiment-analysis approaches were evaluated conceptually.
+
+| Model | Advantages | Limitations |
+|------|------------|-------------|
+| TextBlob | Simple and lightweight | Limited contextual understanding |
+| VADER | Effective for social media | Rule-based and less flexible |
+| Traditional ML (SVM, Naive Bayes) | Fast and interpretable | Requires training data |
+| RoBERTa Transformer | High contextual understanding and SOTA NLP performance | Computationally heavier |
+
+**Selected Model:**  
+`cardiffnlp/twitter-roberta-base-sentiment-latest`
+
+**Reason for Selection:**  
+The model is trained on social media text and handles:
+
+- Informal language  
+- Slang  
+- Abbreviations  
+- Emojis  
+- Context-dependent sentiment  
+
+---
+
+## Model Architecture
+
+The project uses:
+
+- RoBERTa (Robustly Optimized BERT Approach)
+- Transformer neural network architecture
+- Pre-trained by Cardiff NLP
+- Hugging Face Transformers
+
+**Input:** Cleaned YouTube comment  
+
+**Output:**
+
+| Label | Meaning |
+|--------|--------|
+| Positive | Favorable audience reaction |
+| Neutral | Balanced or informational reaction |
+| Negative | Unfavorable reaction |
+
+The model also outputs a confidence score (0 to 1).
+
+---
+
+## Feature Engineering
+
+### Timestamp Feature
+
+Extracted using regular expressions:
+
+- 1:25  
+- 12:43  
+- 01:15:20  
+
+---
+
+### Temporal Segment
+
+Each timestamp is converted into seconds and grouped into 30-second intervals.
+
+| Timestamp | Segment |
+|----------|---------|
+| 01:10 | Segment 2 |
+| 01:24 | Segment 2 |
+| 01:45 | Segment 3 |
+
+---
+
+### Engagement Weight
+
+Weight formula:
+
+
+Weight = (Likes × 2) + (Replies × 3)
+
+
+Replies are weighted higher due to deeper engagement.
+
+---
+
+### Sentiment Score
+
+| Label | Score |
+|--------|------|
+| Positive | 1 |
+| Neutral | 0 |
+| Negative | -1 |
+
+---
+
+## Highlight Detection Algorithm
+
+Each segment receives a Peak Score:
+
+
+Peak Score =
+(Comment Count × 3) +
+(Total Likes × 2) +
+(Total Replies × 3) +
+(|Average Sentiment| × 10)
+
+
+This combines:
+
+- Attention  
+- Engagement  
+- Emotional intensity  
+
+Segments with highest scores are identified as **Golden Moments**.
+
+---
+
+## Model Testing and Validation
+
+The model was tested on multiple YouTube videos across categories.
+
+Focus areas:
+
+- Timestamp extraction accuracy  
+- Sentiment classification accuracy  
+- Highlight ranking consistency  
+- Dashboard responsiveness  
+
+Results showed that high-ranked segments often correspond to emotionally or socially significant moments.
+
+---
+
+## Business Value
+
+### Content Creators
+- Automatic highlight detection  
+- Faster short-form content creation  
+- Improved content strategy  
+
+### Marketing Teams
+- Identify high-impact moments  
+- Measure audience sentiment  
+
+### Researchers
+- Analyze audience behavior  
+- Study engagement patterns  
+
+### Media Organizations
+- Monitor public reaction  
+- Evaluate satisfaction  
+
+---
+
+## Limitations
+
+- Only timestamped comments are analyzed  
+- Sarcasm detection is imperfect  
+- Peak score is manually engineered  
+- No multilingual support  
+- Only top-level comments used  
+
+---
+
+## Future Work
+
+- Multilingual sentiment analysis  
+- Topic modeling  
+- Automatic clip extraction  
+- Real-time monitoring  
+- Learned ranking model  
+- Recommendation system  
+
+---
+
+## Key Contribution
+
+The novelty lies in combining:
+
+1. Timestamp extraction  
+2. Sentiment analysis  
+3. Engagement weighting  
+4. Temporal segmentation  
+5. Highlight ranking  
+
+into a unified business intelligence framework for discovering meaningful YouTube moments.
+
+
+
+---
+
+
+# Tools Research and Selection Effort
+
+## Research Process
+
+Before implementation, multiple technologies were investigated and compared based on:
+
+- Ease of integration  
+- Scalability  
+- Community support  
+- Performance  
+- Compatibility with Business Intelligence workflows  
+
+The final technology stack was selected after evaluating alternative solutions.
+
+---
+
+## Data Collection Tools
+
+### Evaluated Alternatives
+- YouTube Data API v3  
+- Selenium Web Scraping  
+- BeautifulSoup Web Scraping  
+
+### Selected Tool
+**YouTube Data API v3**
+
+### Justification
+The YouTube API was selected because:
+
+- Official Google solution  
+- Reliable and stable  
+- Structured JSON responses  
+- Easy integration with Python  
+- Compliance with platform policies  
+
+---
+
+## Data Processing Tools
+
+### Evaluated Alternatives
+- Python  
+- R  
+- SQL-based workflows  
+
+### Selected Tool
+**Python**
+
+### Justification
+Python provides:
+
+- Strong NLP ecosystem  
+- Data analytics libraries  
+- API integration support  
+- Machine learning capabilities  
+
+---
+
+## Machine Learning Framework
+
+### Evaluated Alternatives
+- TextBlob  
+- VADER  
+- spaCy  
+- Hugging Face Transformers  
+
+### Selected Framework
+**Hugging Face Transformers**
+
+### Justification
+Transformers provide:
+
+- State-of-the-art NLP performance  
+- Pre-trained models  
+- Easy deployment  
+- Strong community support  
+
+---
+
+## Sentiment Analysis Model
+
+**Selected Model:**  
+`cardiffnlp/twitter-roberta-base-sentiment-latest`
+
+**Reasons for Selection:**
+
+- Trained on social media text  
+- High contextual understanding  
+- Strong performance on user-generated content  
+- Suitable for YouTube comments  
+
+---
+
+## Data Analysis Libraries
+
+### Pandas
+
+Used for:
+
+- Data manipulation  
+- Aggregation  
+- Cleaning  
+- Feature engineering  
+
+### Regular Expressions (re)
+
+Used for:
+
+- Timestamp extraction  
+- Text preprocessing  
+
+---
+
+## Visualization Tools
+
+### Evaluated Alternatives
+- Matplotlib  
+- Seaborn  
+- Plotly  
+
+### Selected Tool
+**Plotly**
+
+### Justification
+Plotly provides:
+
+- Interactive charts  
+- Modern visualizations  
+- Streamlit integration  
+- Better user experience  
+
+---
+
+## Dashboard Framework
+
+### Evaluated Alternatives
+
+| Framework | Pros | Cons |
+|------------|------|------|
+| Flask | Flexible | Requires frontend development |
+| Dash | Strong analytics focus | More complex setup |
+| Streamlit | Fast deployment & simplicity | Less customization than full-stack frameworks |
+
+### Selected Tool
+**Streamlit**
+
+### Reason
+Streamlit allowed rapid development of a professional Business Intelligence dashboard with minimal development overhead.
+
+---
+
+## Development Environment
+
+Tools used:
+
+- Visual Studio Code  
+- Git  
+- GitHub  
+- Python Virtual Environment  
+
+---
+
+## Why This Technology Stack Was Chosen
+
+The selected stack provides:
+
+- Real-time data collection  
+- AI-powered sentiment analysis  
+- Interactive Business Intelligence dashboards  
+- Fast deployment  
+- Low development complexity  
+- Strong scalability for future enhancements  
+
+---
+
+## Final Outcome
+
+This combination enabled the successful development of a complete end-to-end Business Intelligence solution for YouTube audience analytics.
+
+
+---
+
+
+# Tools Research and Selection Effort
+
+---
+
+## Evaluated Tools
+
+### Data Collection
+- YouTube Data API v3  
+- Web Scraping  
+
+**Selected:** YouTube Data API v3  
+
+**Reason:**  
+Official, reliable, and compliant with YouTube policies.
+
+---
+
+### Machine Learning
+- TextBlob  
+- VADER  
+- RoBERTa  
+
+**Selected:** RoBERTa  
+
+**Reason:**  
+Higher contextual understanding and improved sentiment performance.
+
+---
+
+### Dashboard Development
+- Streamlit  
+- Flask  
+- Dash  
+
+**Selected:** Streamlit  
+
+**Reason:**  
+Rapid development and excellent support for data applications.
+
+---
+
+### Visualization
+- Plotly  
+- Matplotlib  
+- Seaborn  
+
+**Selected:** Plotly  
+
+**Reason:**  
+Interactive and visually appealing charts.
+
+---
+
+## Project Deployment Effort – Use Case
+
+### End Users
+- Content creators  
+- YouTubers  
+- Marketing teams  
+- Researchers  
+
+---
+
+## Deployment Method
+
+Interactive Streamlit web application.
+
+---
+
+## Workflow
+
+1. User enters Video ID  
+2. System retrieves comments  
+3. Data is cleaned and transformed  
+4. Sentiment analysis is performed  
+5. Engagement metrics are calculated  
+6. Dashboard visualizes insights  
+
+---
+
+## Future Deployment Options
+
+- Streamlit Cloud  
+- Render  
+- Railway  
+- AWS  
+- Microsoft Azure  
+
+---
+
+## Results
+
+The developed system successfully identifies high-interest moments within YouTube videos using timestamp-based audience comments. By combining sentiment analysis with engagement indicators such as likes and replies, the system generates meaningful rankings of important video segments.
+
+The interactive dashboard transforms complex audience behavior into clear and interpretable visualizations. Users can quickly identify highlights, understand audience emotions, and discover influential discussions.
+
+Overall, the project demonstrates how Business Intelligence and Artificial Intelligence can be integrated to provide deeper insights into video engagement beyond traditional analytics.
+
+---
+
+## References
+
+- Google Developers. (2025). YouTube Data API v3 Documentation.  
+  https://developers.google.com/youtube/v3  
+
+- Hugging Face. (2025). Transformers Documentation.  
+  https://huggingface.co/docs/transformers  
+
+- Cardiff NLP. (2025). Twitter RoBERTa Sentiment Model.  
+  https://huggingface.co/cardiffnlp/twitter-roberta-base-sentiment-latest  
+
+- Plotly Technologies Inc. (2025). Plotly Documentation.  
+  https://plotly.com  
+
+- Streamlit Inc. (2025). Streamlit Documentation.  
+  https://streamlit.io  
+
+- Pandas Development Team. (2025). Pandas Documentation.  
+  https://pandas.pydata.org  
+
+---
+
+## Code Setup and Dependencies
+
+### Clone Repository
+```bash
+git clone <repository-url>
+
+## 2. Navigate to the Project Folder
+
+```bash
+cd Temporal-Sentiment-Analysis
+```
+
+## 3. Create a Virtual Environment
+
+```bash
+python -m venv .venv
+```
+
+## 4. Activate the Virtual Environment
+
+### Windows
+
+```bash
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+## 5. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## 6. Configure API Key
+
+Create a `.env` file in the project root:
+
+```env
+YOUTUBE_API_KEY=YOUR_API_KEY
+```
+
+## 7. Run the Application
+
+```bash
+streamlit run dashboard.py
+```
+
+---
+
+## Technologies Used
+
+- Python
+- Streamlit
+- Pandas
+- Plotly
+- Hugging Face Transformers
+- YouTube Data API v3
+- RoBERTa Sentiment Analysis Model
+
+---
+
+## Project Objective
+
+This project analyzes timestamp-based YouTube comments to identify the most engaging moments within videos. By combining sentiment analysis, comment engagement, and interactive visualizations, the system helps users understand audience reactions and discover key discussion points throughout a video's timeline.
+
 
 

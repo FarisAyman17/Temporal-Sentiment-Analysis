@@ -1,201 +1,225 @@
 
 
+# Temporal Sentiment Analysis for YouTube Highlights
+
+## Title Page & Authors
+
+### Authors
+- Faris Ayman – 202210206
+
+### Supervised by
+- Husam Barham
+
+### Course
+- 307498 – Graduation Project
+
+### Semester
+- Second Semester, 2025/2026
+
+### Date
+- 08/06/2026
+
 ---
 
-## [Documentation Template Sections](docs/documentation.md)
+# Table of Contents
 
-## [**Title Page & Authors**](docs/documentation.md#title-page-authors)
+- [Abstract](docs/documentation.md#abstract)
+- [Acknowledgment](docs/documentation.md#acknowledgment)
+- [Business Intelligence Project Description and Objectives](docs/documentation.md#business-intelligence-project-description-and-objectives)
+- [Data Research and Acquiring Effort](docs/documentation.md#data-research-and-acquiring-effort)
+- [Data Description and Understanding](docs/documentation.md#data-description-and-understanding)
+- [Data Primary Cleaning and Transformation](docs/documentation.md#data-primary-cleaning-and-transformation)
+- [Data Visualization and Insights](docs/documentation.md#data-visualization-and-insights)
+- [Dashboard Design & Business Insights](docs/documentation.md#dashboard-design--business-insights)
+- [Advanced Analytics and AI Modeling](docs/documentation.md#advanced-analytics-and-ai-modeling)
+- [Tools Research and Selection Effort](docs/documentation.md#tools-research-and-selection-effort)
+- [Project Deployment Effort – Use Case](docs/documentation.md#project-deployment-effort--use-case)
+- [Results](docs/documentation.md#results)
+- [References](docs/documentation.md#references)
+
+---
+
+# Abstract
+
+Temporal Sentiment Analysis for YouTube Highlights is a Business Intelligence and Artificial Intelligence project designed to identify the most engaging moments within YouTube videos through timestamp-based audience comments. Traditional video analytics provide aggregate metrics such as views, likes, and watch time but do not reveal which exact moments generated the strongest audience reactions. This project addresses that limitation by analyzing timestamp references embedded within viewer comments.
+
+The system collects comments using the YouTube Data API v3, extracts timestamp references through regular expression matching, performs sentiment analysis using a transformer-based RoBERTa model, and combines engagement metrics such as likes and replies to identify important video segments. The processed data is visualized through an interactive Streamlit dashboard that supports exploratory analysis and highlight discovery.
+
+The results demonstrate that timestamp comments are effective indicators of audience attention and engagement. By combining sentiment analysis, temporal analytics, and engagement metrics, the system successfully discovers meaningful video highlights and transforms unstructured audience feedback into actionable business insights.
+
+---
+
+# Dashboard Preview
+
+![Dashboard Overview](images/dashboard-overview.jpeg)
+
+---
+
+# Project Highlights
+
+- Automatic timestamp extraction from YouTube comments
+- AI-powered sentiment analysis using RoBERTa
+- Audience engagement measurement through likes and replies
+- Highlight detection using a custom Peak Score algorithm
+- Interactive Streamlit dashboard
+- Business Intelligence visualizations and insights
+
+---
+
+# Technology Stack
+
+## Data Collection
+- YouTube Data API v3
+
+## Data Processing
+- Python
+- Pandas
+- Regular Expressions
+
+## Machine Learning
+- Hugging Face Transformers
+- Cardiff NLP RoBERTa Sentiment Model
+
+## Visualization
+- Plotly
+
+## Dashboard Development
+- Streamlit
+
+## Development Tools
+- Visual Studio Code
+- Git
+- GitHub
+
+---
+
+# Project Deployment Effort – Use Case
+
+## End Users
+
+- Content Creators
+- YouTubers
+- Marketing Teams
+- Researchers
+- Media Organizations
+
+## Workflow
+
+1. User enters a YouTube Video ID.
+2. Comments are retrieved through the YouTube API.
+3. Timestamp references are extracted.
+4. Data is cleaned and transformed.
+5. Sentiment analysis is performed.
+6. Engagement metrics are calculated.
+7. Important video moments are ranked.
+8. Results are visualized through the dashboard.
+
+## Deployment Method
+
+Interactive Streamlit Web Application.
+
+## Future Deployment Options
+
+- Streamlit Cloud
+- Render
+- Railway
+- AWS
+- Microsoft Azure
+
+---
+
+# Results
+
+The developed system successfully identifies high-interest moments within YouTube videos using timestamp-based audience comments. By combining sentiment analysis with engagement indicators such as likes and replies, the system generates meaningful rankings of important video segments.
+
+The dashboard transforms complex audience behavior into intuitive visualizations that help users understand audience sentiment, identify influential discussions, and discover video highlights efficiently.
+
+Overall, the project demonstrates how Business Intelligence and Artificial Intelligence can be combined to provide deeper insights into audience engagement beyond traditional video analytics.
+
+---
+
+# Code Setup and Dependencies
+
+## 1. Clone Repository
+
+```bash
+git clone <repository-url>
 ```
-[Insert Title Here]
 
-Authors
-- [Student Name], [Student Number]
-- [Student Name], [Student Number]
+## 2. Navigate to Project Folder
 
-Supervised by: [Supervisor Name]
-
-Course: 307498 – Graduation Project
-Semester: First Semester, 2025/2026
-
-Date: [Submission Date]
+```bash
+cd Temporal-Sentiment-Analysis
 ```
 
-## [Table of Content](docs.domcumentation.md#table-of-content) 
+## 3. Create Virtual Environment
 
-- ### [**Abstract**](docs/documentation.md#abstract)
-- ### [**Acknowledgment**](docs/documentation.md#acknowledgment)
-- ### [**Business Intelligence Project Description and Objectives**](docs/documentation.md#business-intelligence-project-description-and-objectives)
-- ### [**Data Research and Acquiring Effort**](docs/documentation.md#data-research-and-acquiring-effort)
-- ### [**Data Description and Understanding**](docs/documentation.md#data-description-and-understanding)
-- ### [**Data Primary Cleaning and Transformation**](docs/documentation.md#data-primary-cleaning-and-transformation)
-- ### [**Data Visualization and Insights**](docs/documentation.md#data-visualization-and-insights)
-- ### [**Dashboard Design & Business Insights**](docs/documentation.md#dashboard-design--business-insights)
-- ### [**Advanced Analytics and AI Modeling**](docs/documentation.md#advanced-analytics-and-ai-modeling)
-- ### [**Tools Research and Selection Effort**](docs/documentation.md#tools-research-and-selection-effort)
-- ### [**Project Deployment Effort – Use Case**](docs/documentation.md#project-deployment-effort-use-case)
-- ### [**Results**](docs/documentation.md#results)
-- ### [**References**](docs/documentation.md#references)
-
-
-
-## [**Abstract**](docs/documentation.md#abstract)
-A concise summary of your project (2-3 paragraphs):
-- 1 paragraph: Introduction and objectives
-- 1 paragraph: Implementation approach and methods
-- 1 paragraph: Key results and findings
-
-## [**Acknowledgment**](docs/documentation.md#acknowledgment)
-Acknowledge individuals and organizations that supported your project.
-
-## [**Business Intelligence Project Description and Objectives**](docs/documentation.md#business-intelligence-project-description-and-objectives)
-- What is your project about?
-- What industry or business domain does it address?
-- How will it help the industry/business?
-- What specific business problems are you solving?
-
-## [**Data Research and Acquiring Effort**](docs/documentation.md#data-research-and-acquiring-effort)
-- What data did you search for and why?
-- How did you acquire it? Sources, APIs, Scraping.
-- **Links to raw data sources** (URLs, datasets)
-- Brief description of each data source
-
-## [**Data Description and Understanding**](docs/documentation.md#data-description-and-understanding)
-- **Data Dictionary**: Describe every field you're using and why it matters
-- **Exploratory Data Analysis (EDA)**:
-  - Charts and graphs showing data distribution
-  - Patterns discovered
-  - Correlations and relationships found
-  - Insights relevant to your project objectives
-
-## [**Data Primary Cleaning and Transformation**](docs/documentation.md#data-primary-cleaning-and-transformation)
-Describe all data preparation steps in sequence:
-- Data type conversions
-- Handling missing values
-- Merging datasets
-- Aggregation and appending
-- Any other transformations applied
-
-## [**Data Visualization and Insights**](docs/documentation.md#data-visualization-and-insights)
-- Include relevant charts and describe each one
-- Explain the significance of each visualization
-- Highlight key insights from your charts
-- What patterns do these visualizations reveal?
-
-## [**Dashboard Design & Business Insights**](docs/documentation.md#dashboard-design--business-insights)
-- Showcase your final BI Dashboard
-- Organize by **Business Questions Answered**
-
-For each chart/component:
-```
-Chart [#]: [Title]
-Description: [What does this chart show?]
-Insight Derived: [What does this tell the business? Why is this important?]
+```bash
+python -m venv .venv
 ```
 
-Examples:
-- Chart 1: Sales Trend Analysis – Shows growth pattern
+## 4. Activate Virtual Environment
 
-![An example of a chart.](images/image-rendered.webp)
-> The chart shows a cat
+### Windows
 
-- Chart 2: Customer Segmentation – Identifies high-value segments
-- Chart 3: Regional Performance – Highlights top/bottom performers
+```bash
+.venv\Scripts\activate
+```
 
-## [**Advanced Analytics and AI Modeling**](docs/documentation.md#advanced-analytics-and-ai-modeling)
-- What type of model did you build? (Clustering, Predictive, Association, Generative AI, forecasting, agents, etc.)
-- What pre built AI models did you use and how?
-- What results were you seeking or what attribute are you predicting?
-- **Model Characteristics**: Such as Accuracy, precision, recall, weights, parameters
-- Include multiple iterations if applicable
-- Explain your findings and model performance
+### Linux / macOS
 
-## [**Tools Research and Selection Effort**](docs/documentation.md#tools-research-and-selection-effort)
-- What tools did you evaluate?
-- Which tools did you ultimately choose?
-- Why did you select these tools?
-- How do they support your project?
+```bash
+source .venv/bin/activate
+```
 
-Examples:
-- Data Analysis: Python, R, SQL
-- Visualization: Tableau, Power BI, Looker
-- Deployment: Streamlit, Fast API, Gradio, Flask, Cloud platforms
+## 5. Install Dependencies
 
-## [**Project Deployment Effort – Use Case**](docs/documentation.md#project-deployment-effort-use-case)
-- How will a business user consume this project?
-  - Interactive web dashboard (Streamlit)?
-  - Scheduled reports?
-  - Dashboard
-  - Live API?
-  - Mobile app?
-- Implementation steps in chronological order
-- If you built a prototype, describe deployment process
-- Infrastructure and hosting considerations
+```bash
+pip install -r requirements.txt
+```
 
-## [**Results**](docs/documentation.md#results)
-- Summary of findings (2-3 paragraphs)
-- Most important insights or charts in your opinion
-- Evaluation and interpretation of results
-- Business impact and recommendations
+## 6. Configure API Key
 
-## [**References**](docs/documentation.md#references)
-List all sources cited in your project using a consistent citation format (APA, Chicago, etc.)
+Create a `.env` file:
+
+```env
+YOUTUBE_API_KEY=YOUR_API_KEY
+```
+
+## 7. Run Application
+
+```bash
+streamlit run dashboard.py
+```
 
 ---
 
-## Code setup and dependencies Instructions
-Write procedure for setup and running code.
-for example:
-1. Clone the repository: 
-   ```bash
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory: 
-   ```bash
-   cd <project-directory>
-   ```
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Run the application: 
-   ```bash
-   python app.py
-   ```
+# Documentation
+
+The complete project documentation is available in:
+
+```text
+docs/documentation.md
+```
+
+This document contains detailed explanations of:
+
+- Data acquisition
+- Data preprocessing
+- Exploratory data analysis
+- Dashboard design
+- AI modeling
+- Business insights
+- Results and recommendations
 
 ---
 
+# References
 
-
-
-## Documentation Best Practices
-
-✅ **Do's:**
-- Write in clear, descriptive language documenting your work effort.
-- Use consistent formatting and headings
-- Include visuals (charts, screenshots, diagrams)
-- Add links to your data sources and tools
-- Update regularly as your project evolves
-- Use version control (git commits with meaningful messages)
-
-❌ **Don'ts:**
-- Don't use Word documents – use Markdown (.md) here [Documentation](docs/documentation.md) for project documentation and version control, link main sections of documentation at the readme overview and Table of Content, as shown in the template.
-- Don't commit large data files directly – use `.gitignore` and reference external sources
-- Don't leave sections incomplete – mark as TODO if not ready
-- Don't forget to document your data sources and methodology
-
----
-
-## Flexibility by Project Type
-
-**This template is flexible.** Adapt based on your project focus:
-
-| Project Type | Emphasis | Key Sections |
-|---|---|---|
-| **Dashboard-Heavy** | Visualization & Design | Sections 8-9 (Dashboard, Visualizations) |
-| **Predictive Analytics** | Advanced Modeling | Section 10 (AI/ML Modeling) |
-| **Data Engineering** | Cleaning & Transformation | Section 7 (Data Prep) |
-| **Business Analysis** | Insights & Recommendations | Sections 5-6, 13 (Data, Results) |
-| **Web Application** | Deployment & Use Cases | Section 12 (Deployment) |
-
----
+- Google Developers. (2025). YouTube Data API v3 Documentation.
+- Hugging Face. (2025). Transformers Documentation.
+- Cardiff NLP. (2025). Twitter RoBERTa Sentiment Model.
+- Plotly Technologies Inc. (2025). Plotly Documentation.
+- Streamlit Inc. (2025). Streamlit Documentation.
+- Pandas Development Team. (2025). Pandas Documentation.
 
