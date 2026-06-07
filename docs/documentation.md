@@ -733,13 +733,13 @@ Which parts of the video attracted the highest audience attention?
 > Insert Screenshot Here
 
 
-![Audience Attention Timeline](.../images/Audience-Attention-Timeline.jpeg)
+![Audience Attention Timeline](../images/Audience-Attention-Timeline.jpeg)
+
 
 
 ### Insights
 
-This chart highlights peaks in audience activity.![Test](../images/dashboard-overview.jpeg)
-
+This chart highlights peaks in audience activity.
 High peaks indicate moments where viewers repeatedly referenced the same timestamps, suggesting memorable, impactful, or discussion-worthy content.
 
 Content creators can use this information to identify successful content patterns and improve future productions.
@@ -760,9 +760,9 @@ What are the most important moments according to audience behavior?
 
 > Insert Screenshot Here
 
-```markdown
-![Top Video Moments](../images/golden-moments.png)
-```
+
+![Top Video Moments](../images/golden-moments-ranking.jpeg)
+
 
 ### Insights
 
@@ -791,9 +791,9 @@ How did viewers feel about the video?
 
 > Insert Screenshot Here
 
-```markdown
-![Sentiment Distribution](../images/sentiment-distribution.png)
-```
+
+![Sentiment Distribution](../images/sentiment-distribution.jpeg)
+
 
 ### Insights
 
@@ -913,7 +913,9 @@ The visualization layer revealed several important patterns:
 ---
 
 # Dashboard Design & Business Insights
-![Dashboard Overview](images/dashboard-overview.jpeg)
+
+![Dashboard Overview](../images/dashboard-overview.jpeg)
+
 ## Dashboard Overview
 
 The final dashboard was developed using Streamlit and serves as the primary user interface for the project.
